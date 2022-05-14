@@ -19,15 +19,9 @@ if os.path.exists(path):
             #print(os.stat(p).st_ctime)
             t=os.stat(p).st_ctime
             if t<time_old:
-                if os.remove(p):
-                    print("Deleted file at: ",p)
-                else:
-                    print("Unable to delete file: ",p)
+                os.remove(p)
         for d in dirs:
             p=os.path.join(root,d)
             t=os.stat(p).st_ctime
             if t<time_old:
-                if shutil.rmtree(p):
-                    print("Deleted folder at: ",p)
-                else:
-                    print("Unable to delete folder: ",p)
+                shutil.rmtree(p)
